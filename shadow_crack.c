@@ -100,7 +100,7 @@ int main(int argc, char ** argv) {
 
       init();
 
-      signal(SIGSEGV, &cleanexit); /* Redirect Segfault to cleanup() */
+      signal(SIGSEGV, &cleanexit); /* Redirect Segfault to cleanexit() */
       signal(SIGINT, &cleanexit);
 
       if (argc < 3) {
