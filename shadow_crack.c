@@ -94,7 +94,9 @@ char * create_shadow_salt(int id, const char salt[]) {
 
 int main(int argc, char ** argv) {
       init();
+
       signal(SIGSEGV, &cleanexit); /* Redirect Segfault to cleanup() */
+      signal(SIGINT, &cleanexit);
 
       if (argc < 3) {
             printf("Usage $ %s <USER> <SHADOW FILE> <WORDLIST (optional)>\n", argv[0]);
