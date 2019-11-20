@@ -93,6 +93,11 @@ char * create_shadow_salt(int id, const char salt[]) {
 }
 
 int main(int argc, char ** argv) {
+      if(getuid() != 0) {
+            printf("Must run as root\n");
+	    cleanexit();
+      }
+
       init();
 
       signal(SIGSEGV, &cleanexit); /* Redirect Segfault to cleanup() */
